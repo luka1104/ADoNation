@@ -1,0 +1,10 @@
+<% @projects.each do |project| %>
+    <div class="project-card"> 
+        <div class="card-description">
+            <div class="categorie"><%= project.title %></div>
+            <h2 class="title"><%= project.description %></h2>
+            <div class="date"><%= project.created_at %></div>
+            <div class="btn"><%= link_to("ReadMore", "/") %></div>
+        </div>
+    </div>
+<% end %>

@@ -1,0 +1,14 @@
+<div class="admin-project">
+    <%= form_tag(projects_path(@post)) do %>
+        <div class="admin-project-input">
+            <h2>新規プロジェクト情報入力画面</h2>
+            <p>プロジェクト名</p>
+            <input id="projecttitle" name="title" type="text" placeholder="プロジェクト名" value="<%= @title %>">
+            <p>プロジェクト本文</p>
+            <div class="project-description-input">
+                <textarea name="description" placeholder="説明文" value="<%= @description %>"></textarea>
+                <input type="submit" class="long-btn login-submit" value="送信">
+            </div>
+        </div>
+    <% end %>
+</div>

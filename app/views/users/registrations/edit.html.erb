@@ -1,0 +1,55 @@
+<div class="user-show-container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="show-container-top">
+      <div class="show-left-content">
+        <div class="show-user-img">
+          <%= f.label :avatar do %>
+            <% if @user.avatar.attached? %>
+              <%= image_tag(@user.avatar) %>
+            <% else %>
+              <%= image_tag('/assets/user_icon_default.png') %> 
+            <% end %>
+            <%= f.file_field :avatar, style: 'display:none' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="show-right-content">
+        <h2><%= f.text_field :name, autofocus: true, id: "userid", value: @user.name %></h2>
+        <p><%= f.email_field :email, autofocus: true, autocomplete: "email", id: "userid", value: @user.email %></p>
+        <h3><%= f.text_area :profile, autofocus: true, id: "userid", value: @user.profile %></h3>
+        <p><%= f.text_field :url, autofocus: true, id: "userid", value: @user.url %></p>
+      </div>
+    </div>
+    <div class="owned-project">
+      <h2>投稿したプロジェクト</h2>
+      <ul class="list-con">
+        <% @user.projects.each do |project| %>
+          <li>
+            <%= link_to(project_path(id: project.id)) do %>
+              <article class="project-list-link">
+                <%= image_tag(project.main_photo) if project.main_photo.present? %>
+                <div class="text">
+                  <div class="ttl"><%= project.title %></div>
+                  <div class="sab">
+                    <p class="kinngaku">現在 2251円</p>
+                    <p class="siennsya">支援者 17人</p>
+                    <p class="nissuu">残り 34日</p>
+                  </div>
+                </div>
+              </article>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="edit-footer">
+      <div class="footer-btn">
+        <%= f.submit "編集内容を送信", class: "edit-btn edit-submit" %>
+        <%= link_to('戻る', user_profile_path(id: current_user), {class: "edit-btn preview-btn"}) %>
+      </div>
+    </div>
+  <% end %>
+  <div class="edit-bottom-menu">
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "long-btn login-submit" %>
+  </div>
+</div>

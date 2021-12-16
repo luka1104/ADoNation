@@ -1,0 +1,533 @@
+// Place all the styles related to the project controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.admin-project {
+    max-width: 600px;
+    margin: 0px auto;
+    padding-top: 100px;
+    padding-left: 15px;
+    padding-right: 15px;
+    clear: both;
+}
+.banner {
+    background-color: lightcoral;
+    height: 50px;
+    padding-top: 132px;
+    text-align: center;
+    color: ivory;
+}
+.admin-project-input {
+    h2 {
+        max-width: 338px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #e4e4e4;
+    }
+    p {
+        float: left;
+        padding: 0px 0px 0px 41px;
+        margin: 0px 0px 5px 0px;
+        font-size: 12px;
+    }
+    a {
+        float: right;
+        font-size: 12px;
+        padding-right: 41px;
+    }
+    textarea {
+        font-size: 10px;
+        width: 300px;
+        padding: 10px;
+        min-height: 140px;
+        border: 1px solid rgb(216, 218, 223);
+        resize: none;
+    }
+    textarea::-webkit-input-placeholder {
+        font-size: 24px;
+        opacity: 0.5;
+    }
+} 
+//project#show//
+.project-container {
+    min-height: 1000px;
+    background-color: white;
+    padding-top: 200px;
+}
+.project-top-container {
+    width: 80%;
+    margin: 0 auto;
+    height: 800px;
+    background-color: white;
+}
+.project-base-top {
+    display: flex;
+    background-color: white;
+    height: 400px;
+    width: 100%;
+}
+.project-image {
+    display: flex;
+    background-color: white;
+    width: 70%;
+    height: 400px;
+    img {
+        width: 100%;
+    }
+}
+.project-info {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 30%;
+    height: 400px;
+    p {
+        float: left;
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 30px;
+        float: right;
+    }
+    h1 {
+        font-size: 45px;
+        float: right;
+        font-weight: bold;
+    }
+}
+.status-money {
+    width: 100%;
+    padding: 20px;
+}
+.money-status {
+    font-size: 25px;
+    font-weight: bold;
+}
+.asp-money-show {
+    width: 100%;
+    padding: 0 20px 20px 20px;
+}
+.project-status-bar {
+    width: 100%;
+}
+.supporter-num {
+    width: 100%;
+    padding: 0 20px 20px 20px;
+}
+.date-remaining {
+    width: 100%;
+    padding: 0 20px 20px 20px;
+}
+.project-btn {
+    text-align: center;
+    margin: 0 auto;
+    a {
+        color: white;
+    }
+}
+.project-base-down {
+    height: 450px;
+    width: 100%;
+    background-color: white;
+}
+.project-img-list {
+    height: 90px;
+    width: 100%;
+    background-color: white;
+    img {
+        width: 15%;
+        height: 90px;
+        padding: 20px 20px;
+    }
+}
+.project-title {
+    padding: 50px 20px 10px 20px;
+    background-color: white;
+    height: 60px;
+    border-bottom: 1px solid #e4e4e4;
+    h1 {
+        font-size: 32px;
+    }
+}
+.project-tag-list {
+    font-size: 15px;
+    padding: 10px 0;
+    height: 50px;
+    border-bottom: 1px solid #e4e4e4;
+    li {
+        float: left;
+        background-color: white;
+        padding: 0 20px;
+    }
+}
+.project-tag-other {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e4e4e4;
+}
+.project-tag-info {
+    display: flex;
+    font-size: 15px;
+    padding: 10px 0;
+    height: 50px;
+    li {
+        float: left;
+        background-color: white;
+        padding: 0 20px;
+    }
+    a {
+        width: 100%;
+    }
+}
+.project-link-sns {
+    display: flex;
+    font-size: 15px;
+    padding: 10px 0;
+    height: 50px;
+    li {
+        float: left;
+        background-color: white;
+        padding: 0 20px;
+    }
+}
+.project-description {
+    padding: 20px;
+    height: 150px;
+    background-color: white;
+}
+.project-base-bottom {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    justify-content: space-between;
+}
+.project-page-tab {
+    display: flex;
+    font-size: 20px;
+    height: 50px;
+    li {
+        float: left;
+        background-color: white;
+        padding: 0 20px;
+        line-height: 50px;
+    }
+}
+.project-likes {
+    display: flex;
+    background-color: white;
+    line-height: 50px;
+    width: 100px;
+    a {
+        margin: 0 auto;
+    }
+}
+.project-main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 150px 0px 30px 0px;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 80%;
+    background-color: white;
+    p {
+        font-size: 24px;
+        margin: 20px 0;
+    }
+}
+.project-content-left {
+    flex-grow: 1;
+    width: 70%;
+    h3 {
+        padding: 0 0 10px 10px;
+    }
+}
+.project-mainbody {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 6px  #c1ced7;
+    width: 95%;
+}
+.project-content-right {
+    flex-grow: 1;
+    width: 30%;
+    h3 {
+        padding: 0 0 10px 0;
+    }
+}
+.project-author {
+    width: 95%;
+    padding: 20px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin-bottom: 20px;
+}
+.author-name {
+    text-align: center;
+    padding-bottom: 20px;
+}
+.author-image {
+    text-align: center;
+    img {
+        width: 80%;
+        height: 80%;
+        border-radius: 100%;
+        box-shadow: 0 2px 6px #c1ced7;
+        object-fit: cover;
+    }
+}
+.project-perk {
+    width: 95%;
+    padding: 20px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin-bottom: 20px;
+}
+
+.project-time {
+    color: #8899a6;
+    margin-bottom: 10px;
+}
+
+.project-menus {
+    float: right;
+    a,
+    input {
+        color: #8899a6;
+        text-decoration: underline;
+        font-size: 14px;
+        padding: 0px 20px 0px 20px;
+    }
+}
+.project-description-input {
+  width: 80%;
+}
+
+.modal-edit-main {
+    background-color: #e4e4e4;
+    width: 80%;
+    margin: 0 auto;
+    min-height: 500px;
+    color: black;
+}
+
+#preview-input-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    padding-top: 100px;
+}
+#preview2-input-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    padding-top: 100px;
+}
+#preview3-input-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    padding-top: 100px;
+}
+#preview4-input-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    padding-top: 100px;
+}
+#preview5-input-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    padding-top: 100px;
+}
+.preview-cancel {
+    padding-left: 300px;
+}
+.project-edit {
+    padding-top: 100px;
+    max-width: 420px;
+    height: 800px;
+    margin-bottom: 50px;
+    color: black;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #e4e4e4;
+    background-color: #F6F8FA;
+}
+.form {
+    height: 320px;
+}
+
+.form-body {
+    height: 300px;
+}
+#projecttitle {
+    width: 338px;
+    margin: 0 41px 20px 41px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #e4e4e4;
+}
+#image-holder {
+    width: 338px;
+    margin: 0 41px 20px 41px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #e4e4e4;
+}
+#password {
+    width: 338px;
+    margin: 0 41px 20px 41px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #e4e4e4;
+}
+input#file-upload-button {
+    background-color:yellowgreen;
+    border: 1px solid #e4e4e4;
+    border-radius: 20%;
+}
+.far {
+    padding-left: 20px;
+}
+.fa-edit { 
+    font-size: 20px;
+}
+
+.edit-header {
+    padding-top: 100px;
+    height: 300px;
+    h1 {
+        text-align: center;
+        padding-bottom: 40px;
+    }
+}
+.edit-percent {
+    position: absolute;
+    top: 110px;
+    right: 20px;
+}
+.edit-lists {
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    ul {
+        position: relative;
+        left: 50%;
+        float: left;
+    }
+    li {
+        position: relative;
+        left: -50%;
+        float: left;
+        padding: 20px 60px;
+        text-align: center;
+        border-bottom: 1px solid #e4e4e4;
+    }
+}
+.project-edit-field {
+    margin: 0 auto;
+}
+.mainbody-area {
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+}
+.mainbody-title {
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    span {
+        color: red;
+    }
+}
+.project-edit-container {
+    width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    clear: both;
+}
+.edit-title {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid #e4e4e4;
+}
+.hide-content {
+    display: none;
+}
+.edit-footer {
+    margin: 0 auto;
+    text-align: center;
+    height: 100px;
+    display: flex;
+}
+//btn-style//
+.edit-btn {
+    padding: 8px 24px;
+    color: white;
+    display: inline-block;
+    opacity: 1;
+    border-radius: 5px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    line-height: 50px;
+}
+.edit-btn:hover {
+    opacity: 0.7;
+}
+.edit-btn:active {
+    box-shadow: none;
+    position: relative;
+    top: 3px;
+    bottom: 3px;
+    transition: all 0s;
+}
+.edit-submit {
+    background-color: #d3601e;
+
+}
+.preview-btn {
+    background-color: #262928;
+}
+//footer//
+.footer-btn {
+    font-size: 14px;
+    z-index: 3;
+    margin: 0 auto;
+}
+.fixed {
+    bottom: 0;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

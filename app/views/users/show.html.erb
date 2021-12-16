@@ -1,0 +1,51 @@
+<div class="user-show-container">
+  <div class="show-container-top">
+    <div class="show-left-content">
+      <div class="show-user-img">
+        <% if @user.avatar.attached? %>
+          <%= image_tag(@user.avatar) %>
+        <% else %>
+          <%= image_tag('/assets/user_icon_default.png') %> 
+        <% end %>
+      </div>
+    </div>
+    <div class="show-right-content">
+      <h2><%= @user.name %></h2>
+      <p><%= @user.email %></p>
+      <h3><%= @user.profile %></h3>
+      <h4><i class="fas fa-globe-asia"></i><a href="<%= @user.url %>"><%= @user.url %></a></h4>
+      <p>総再生回数：<%= @user_pvs %>回　　総寄付額：<%= @user_donated %>円　　　本日の再生回数：<%= @donated_today %></p>
+    </div>
+  </div>
+  <div class="owned-project">
+    <h2>投稿したプロジェクト</h2>
+    <ul class="list-con">
+      <% @user.projects.each do |project| %>
+        <li>
+          <%= link_to(project_path(id: project.id)) do %>
+            <article class="project-list-link">
+              <%= image_tag(project.main_photo) if project.main_photo.present? %>
+              <div class="text">
+                <div class="ttl"><%= project.title %></div>
+                <div class="sab">
+                  <p class="kinngaku">現在 2251円</p>
+                  <p class="siennsya">支援者 17人</p>
+                  <p class="nissuu">残り 34日</p>
+                </div>
+              </div>
+            </article>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="edit-footer">
+      <div class="footer-btn">
+        <% if user_signed_in? %>
+          <% if current_user.id == @user.id %>
+            <%= link_to('編集する', edit_user_registration_path, {class: "edit-btn preview-btn"}) %>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>

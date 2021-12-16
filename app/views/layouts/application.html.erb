@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ADoNation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div id="logo">
+        <a href="/" class="header-logo"><img src="/assets/adonationlogo.png" alt=""></a>
+        <div id="logo-menu" class="hide-content">
+            <li><a href="/" class="menu-text"></a></li>
+            <li class="logo-com"><a href="/community" class="menu-text">ADoNation-Community-</a></li>
+            <li class="logo-aid"><a href="/aid" class="menu-text">ADoNation-AiD-</a></li>
+        </div>
+      </div>
+      <div class="hide-content">
+          <form action="/projects" method="get">
+          <input id="search" id="s" name="s" type="text" placeholder="キーワード検索"/>
+          <button type="submit" id="kensaku"><i class="fas fa-search"></i></button>
+          </form>
+      </div>
+      <div class="header-list">
+      <% if user_signed_in? %>
+          <ul class="header-nav-login">
+              <li><%= link_to current_user.name, user_profile_path(id: current_user) %></li>
+              <li class="header-login-group"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          </ul>
+          <ul class="header-nav-donate">
+              <li class="project"><%= link_to "キフル", projects_path %></li>
+              <li><%= link_to "ツノル", new_project_path %></li>
+          </ul>
+      <% else %>
+          <ul class="header-nav-login">
+              <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+              <li class="header-login-group"><%= link_to 'ログイン', new_user_session_path %></li>
+          </ul>
+          <ul class="header-nav-donate">
+              <li class="project"><%= link_to "キフル", projects_path %></li>
+              <li><%= link_to "ツノル", new_project_path %></li>
+          </ul>
+      <% end %>
+      </div>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+    <footer>
+      <a href="/" class="footer-logo"><img src="/assets/adonationlogofooter.png" alt=""></a>
+      <div class="footer-list">
+          <ul>
+              <% if user_signed_in? %>
+                  <li><%= link_to current_user.name, user_path(id: current_user) %></li>
+                  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                  <li><%= link_to 'ログイン', new_user_session_path %></li>
+                  <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+              <% end %>
+              <li><%= link_to("会社概要","/aboutus") %></li>
+              <li><%= link_to("採用","/recruitment") %></li>
+              <li><%= link_to("お問い合わせ","/contact") %></li>
+          </ul>
+      </div>
+    </footer>
+  </body>
+</html>

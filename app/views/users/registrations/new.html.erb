@@ -1,0 +1,51 @@
+<body> 
+  <main>
+    <div class="signup-container">
+      <div class="sign-up">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="login-input">
+            <h2>新規会員登録</h2>
+            <p>ユーザー名</p>
+            <%= f.text_field :name, autofocus: true, id: "userid", autocomplete: "name" %>
+            <p>メールアドレス</p>
+            <%= f.email_field :email, autofocus: true, id: "userid", autocomplete: "email" %>
+            <p>パスワード</p>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, id: "password", autocomplete: "new-password" %>
+            <p>パスワードの確認</p>
+            <%= f.password_field :password_confirmation, id: "password", autocomplete: "new-password" %>
+            <%= f.submit "新規会員登録", class: "long-btn login-submit" %>
+          </div>
+                    <div class="login-input-option">
+                        <h3 class="or-separater">or</h3>
+                        <a href="/signup" class="sns-long-btn login-line">
+                            <i class="fas fa-plus"></i>
+                            LINEでアカウントで登録
+                        </a>
+                        <a href="https://www.facebook.com/" class="sns-long-btn login-facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            Facebookでアカウントで登録
+                        </a>
+                        <a href="https://www.twitter.com/" class="sns-long-btn login-twitter">
+                            <i class="fab fa-twitter"></i>
+                             Twitterアカウントで登録
+                        </a>
+                        <a href="https://www.apple.com/" class="sns-long-btn login-apple">
+                            <i class="fab fa-apple"></i>
+                            Appleでサインアップ
+                        </a>
+                        <p>＊利用者の許可なく外部サービスに使用されることはありません</p>
+                    </div>
+                    <div class="signup-link">
+                        <%= link_to("すでにアカウントをお持ちの方はこちら","/login") %>    
+                    </div>
+        <% end %>
+
+                    <%= render "devise/shared/links" %>
+                </div>
+            </div>
+        </main>
+    </body>

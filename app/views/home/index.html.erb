@@ -1,0 +1,54 @@
+<body>
+  <ul class="slick-index">
+    <% @projects.each do |project| %>
+      <%= link_to(project_path(id: project.id), class: 'list-content') do %>
+        <li class="slick-slide slick-current slick-active slick-content">
+          <%= image_tag(project.main_photo) if project.main_photo.present? %>
+          <div class="slick-detail-box">
+            <p><%= project.title %></p>
+            <h1><%= project.description %></h1>
+            <div class="slick-detail-date">
+              <h3>累計寄付額：<%= project.asp_money %>円</h3>
+              <h2>残り日数：<%= project.end_date %>日</h2>
+            </div>
+          </div> 
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <div class="next-content">
+      <i class="fas fa-caret-down"></i>
+  </div>
+  <div class="main-container">
+    <div class="what-adonation">
+        <h1>What Is ADoNation?</h1>
+        <img src="/assets/whatadonation.png" alt="">
+        <div class="description">
+            <p>ADoNationはAd(広告)、project(寄付)、Nation(民衆)を組み合わせた寄付の新しいカタチです。</p>
+        </div>
+    </div>
+    <div class="next-content2">
+        <i class="fas fa-caret-down"></i>
+    </div>
+    <div class="how-to-donate">
+        <h1>キフの仕方</h1>
+        <img src="/assets/howtodonate.png" alt="">
+    </div>
+    <div class="common-questions">
+        <h1>よくある質問</h1>
+        <img src="/assets/question.png" alt="">
+    </div>
+  </div>
+  <div class="footer-ad">
+    <div class="footer-btn-ad fixed-ad">
+      <%= link_to('/', {class: "easy-ad-btn"}) do %>
+        <i class="fas fa-play"></i>
+        <p>広告を再生</p>
+      <% end %>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="slick/slick.min.js"></script>
+</body>

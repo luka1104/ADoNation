@@ -1,0 +1,23 @@
+<p><%= @email %>様</p>
+
+<p>ADoNation では、メールアドレスの間違いによるトラブルを防ぐため、メール認証システムを導入しています。<br>
+以下のURLにアクセスすると、認証が完了します。</p>
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>※このメールにお心当たりがない場合や、ADoNationへの登録をキャンセルする場合はこのまま破棄してください。</p>
+<br>
+<p>本メールは送信専用メールアドレスから送信されています。返信できませんので、ご了承ください。<br>
+このメールにお心当たりのない方は、大変お手数ですが、skyward.luke11@gmail.comまでご連絡ください。</p>
+
+<p>--------------------------------------------</p>
+
+<p>「理不尽な思いを一つでも多く減らす」<br>
+アドネット型寄付サービスADoNation<br>
+■公式サイト　https://make-adonation.com<br>
+■ピックアップ中のプロジェクト　https://make-adonation.com/projects/334/donate<br>
+■公式Twitter　https://twitter.com/kifuluka2021?s=21<br>
+■公式Facebook　https://facebook.com<br>
+<br>
+(c) 2022 ADoNation INC.</p>
+
+<p>--------------------------------------------</p>
+

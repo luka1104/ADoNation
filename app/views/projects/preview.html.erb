@@ -1,0 +1,257 @@
+<main>
+    <div>
+        <h1 class="banner"></h1>
+    </div>
+    <div class="project-container">
+        <div class="project-top-container">
+            <div class="project-base-top">
+                <div class="project-image">
+                  <%= image_tag(@project.main_photo) if @project.main_photo.present? %>
+                </div>
+                <div class="project-info">
+                    <div class="status-money">
+                        <p class="money-status">寄付総額</p>
+                        <h1><%= @project_donated %>円</h1>
+                    </div>
+                    <div class="asp-money-show">
+                      <p>目標金額</p>
+                      <h2><%= @project.asp_money %>円</h2>
+                    </div>
+                    <div class="project-status-bar">
+                    </div>
+                    <div class="supporter-num">
+                        <p>再生回数</p>
+                        <h2><%= @project_pvs_count %>回</h2>
+                    </div>
+                    <div class="date-remaining">
+                        <p>残り日数</p>
+                        <h2><%= @project.end_date %>日</h2>
+                        <p>終了日</p>
+                        <h2><%= @end_date_date %></h2>
+                    </div>
+                    <div class="project-btn preview-btn edit-btn">
+                        <a href="#">寄付する</a>
+                    </div>
+                    <div id="preview-edit-modal">
+                        <i class="far fa-edit"></i>
+                    </div>
+                    <div class="preview-edit-modal" id="preview-input-modal">
+                        <%= form_with url: project_path(id: @project.id), html: { method: :patch, multipart: true } do |form| %>
+                          <div class="modal-edit-main">
+                              <div class="project-edit-container">
+                                  <h1 class="edit-title">必要な目標金額を設定しましょう</h1>
+                                  <div class="asp-money">
+                                      <p>目標金額</p>
+                                      <input name="asp_money" type="number" placeholder="（例）10000" value="<%= @project.asp_money %>">円
+                                  </div>
+                                  <div class="end-date">
+                                      <p>募集終了日</p>
+                                      <input name="end_date" type="number" placeholder="（例）60" value="<%= @project.end_date %>">
+                                      <div class="text-box">
+                                          <p>※ 期間が65日間以下のプロジェクトでは、成功率がより高くなっています。</p>
+                                          <p>※ プロジェクトの公開可能期間は、1日〜79日間となります。（All-or-Nothing方式の場合は1日〜59日間）</p>
+                                          <p>※ 2020-08-31を選択した場合、2020-08-31 23:59 に終了します。</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="edit-footer">
+                              <div class="footer-btn">
+                                  <input type="submit" class="edit-btn edit-submit" value="編集内容を送信">
+                              </div>
+                          </div>
+                        <% end %>
+                        <i id="preview-modal-cancel" class="fa fa-2x fa-times-circle preview-cancel"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="project-base-down">
+              <div class="project-img-list">
+                  <%= image_tag(@project.main_photo) if @project.main_photo.present? %>
+                  <% if @project.photos.attached? %>
+                    <% @project.photos.each do |photo| %>
+                      <%= image_tag photo %>
+                    <% end %>
+                  <% end %>
+                  <i class="far fa-edit" id="preview2-edit-modal"></i>
+              </div>
+                <div class="preview2-edit-modal" id="preview2-input-modal">
+                    <%= form_with url: project_path(id: @project.id), html: { method: :patch, multipart: true } do |form| %>
+                      <div class="modal-edit-main">
+                          <div class="project-edit-container">
+                              <h1 class="edit-title">とびっきりキャッチーな写真をみせつけよう</h1>
+                              <div class="asp-money">
+                                  <p>メイン画像</p>
+                                  <%= form.file_field :main_photo, direct_upload: true %>
+                              </div>
+                              <div class="collect-type">
+                                  <p>サブ画像</p>
+                                  <%= form.file_field :photos, direct_upload: true, multiple: true %>
+                              </div>
+                              <div class="end-date">
+                                  <p>動画</p>
+                                  <input type="text" placeholder="（例）2022-01-04">
+                                  <div class="text-box">
+                                      <p>※  画像の推奨サイズ<br>
+                                          ・横1200px 縦800px 程度<br>
+                                          ・比率 3:2<br>
+                                          ・容量 10メガバイトまで<br>
+                                          ・縦横の比率を揃えると見栄えがよくなります。</p>
+                                      <p>※ 画像の優先順位<br>
+                                          ・最大5枚まで登録でき、1枚目に設定した画像がメインの画像になります。</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                        <div class="edit-footer">
+                            <div class="footer-btn">
+                                <input type="submit" class="edit-btn edit-submit" value="編集内容を送信">
+                            </div>
+                      </div>
+                    <% end %>
+                    <i id="preview2-modal-cancel" class="fa fa-2x fa-times-circle preview-cancel"></i>
+                </div>
+                <div class="project-title">
+                    <h1><%= @project.title %><i class="far fa-edit" id="preview3-edit-modal"></i></h1>
+                </div>
+                <div class="preview3-edit-modal" id="preview3-input-modal">
+                    <%= form_with url: project_path(id: @project.id), method: :patch do |form| %>
+                      <div class="modal-edit-main">
+                            <div class="project-edit-container">
+                              <h1 class="edit-title">あなたのプロジェクトをわかりやすく伝えましょう</h1>
+                              <div class="asp-money">
+                                  <p>タイトル</p>
+                                  <input name="title" type="text" placeholder="プロジェクト名" value="<%= @project.title %>">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="edit-footer">
+                          <div class="footer-btn">
+                              <input type="submit" class="edit-btn edit-submit" value="編集内容を送信">
+                          </div>
+                      </div>
+                    <% end %>
+                    <i id="preview3-modal-cancel" class="fa fa-2x fa-times-circle preview-cancel"></i>
+                </div>
+                <div class="project-description">
+                    <h2><%= @project.description %><i class="far fa-edit" id="preview4-edit-modal"></i></h2>
+                </div>
+                <div class="preview4-edit-modal" id="preview4-input-modal">
+                    <%= form_with url: project_path(id: @project.id), method: :patch do |form| %>
+                      <div class="modal-edit-main">
+                          <div class="project-edit-container">
+                              <h1 class="edit-title">あなたのプロジェクトをわかりやすく伝えましょう</h1>
+                              <div class="collect-type">
+                                  <p>概要文</p>
+                                  <input name="description" type="text" placeholder="概要文" value="<%= @project.description %>">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="edit-footer">
+                          <div class="footer-btn">
+                              <input type="submit" class="edit-btn edit-submit" value="編集内容を送信">
+                          </div>
+                      </div>
+                    <% end %>
+                    <i id="preview4-modal-cancel" class="fa fa-2x fa-times-circle preview-cancel"></i>
+                </div>
+                <div class="project-tag-other">
+                    <ul class="project-tag-info">
+                        <li><a href="#"># <%= @project.category %></a></li>
+                        <li><a href="#"># <%= @project.area %></a></li>
+                        <li><i class="far fa-edit" id="preview5-edit-modal"></i></li>
+                    </ul>
+                    <div class="preview5-edit-modal" id="preview5-input-modal">
+                      <%= form_with url: project_path(id: @project.id), html: { method: :patch, multipart: true } do |form| %>
+                        <div class="modal-edit-main">
+                          <div class="project-edit-container">
+                          <h1 class="edit-title">あなたのプロジェクトをわかりやすく伝えましょう</h1>
+                            <div class="end-date">
+                              <p>カテゴリー</p>
+                              <%= form.select :category, options_for_select(['アート・写真', '音楽', '舞台・パフォーマンス', 'プロダクト', 'テクノロジー・ガジェット', 'ゲーム・サービス開発', 'フード・飲食店', 'ファッション', '映像・映画', '書籍・雑誌出版', 'アニメ・漫画', 'スポーツ', 'ビジネス・起業', 'ソーシャルグッド', 'ビューティー・ヘルスケア', 'まちづくり・地域活性化', 'チャレンジ'], selected: @project.category), include_blank: true, class: 'project-category' %>
+                              <div class="text-box">
+                                <p>※ カテゴリーの決定に関しましては、弊社の基準が適用されることがあります。</p>
+                              </div>
+                            </div>
+                            <div class="connection-area">
+                              <p>関連するエリア</p>
+                                <%= form.select :area, options_for_select(['北海道', '青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県', '茨城県', '栃木県', '群馬県', '埼玉県', '千葉県', '東京都', '神奈川県', '新潟県', '富山県', '石川県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県', '三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県', '鳥取県', '島根県', '岡山県', '広島県', '山口県', '徳島県', '香川県', '愛媛県', '高知県', '福岡県', '佐賀県', '長崎県', '熊本県', '大分県', '宮崎県', '鹿児島県', '沖縄県'], selected: @project.area), { include_blank: '選択しない'}, class: 'form-control' %>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="edit-footer">
+                          <div class="footer-btn">
+                            <input type="submit" class="edit-btn edit-submit" value="編集内容を送信">
+                          </div>
+                        </div>
+                      <% end %>
+                        <i id="preview5-modal-cancel" class="fa fa-2x fa-times-circle preview-cancel"></i>
+                    </div>
+                    <ul class="project-link-sns">
+                        <li><a href="#">facebook</a></li>
+                        <li><a href="#">twitter</a></li>
+                        <li><a href="#">instagram</a></li>
+                        <li><a href="#">埋め込み</a></li>
+                    </ul>
+                </div>
+                <div class="project-base-bottom">
+                    <div class="project-page-tab">
+                        <ul>
+                            <li><a href="#">プロジェクト</a></li>
+                            <li><a href="#">アクティビティ</a></li>
+                            <li><a href="#">寄付コメント</a></li>
+                        </ul>
+                    </div>
+                    <div class="project-likes">
+                        <a href="#">きになる</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-main-container">
+            <div class="project-content-left">
+              <%= form_with url: project_path(id: @project.id), html: { method: :patch, multipart: true } do |form| %>
+                <h3>プロジェクト本文</h3>
+                <div class="project-mainbody">
+                    <%= form.cktext_area :mainbody, class: "form-control", ckeditor: { language: "ja" }, value: @project.mainbody %>
+                </div>
+                <input type="submit" class="edit-btn edit-submit" value="編集内容を送信">
+              <% end %>
+            </div>
+            <div class="project-content-right">
+                <h3>プロジェクトオーナー
+                  <%= link_to(edit_user_registration_path) do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                </h3>
+                <div class="project-author">
+                  <div class="author-image">
+                      <%= image_tag(@user.avatar) %>
+                  </div>
+                  <div class="author-name">
+                      <%= link_to(@user.name, "/users/#{@user.id}") %>
+                  </div>
+                  <div class="author-profile">
+                      <%= @user.profile %>
+                  </div>
+                  <div class="author-link">
+                      <i class="fas fa-globe-asia"></i><a href="https://<%= @user.url %>"><%= @user.url %></a>
+                  </div>
+                </div>
+                <h3>リターン</h3>
+                <div class="project-perk">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="edit-footer">
+        <div class="footer-btn">
+            <%= link_to('戻る', project_path(id: @project.id), {class: "edit-btn preview-btn"}) %>
+        </div>
+    </div>
+    <script>
+    CKEDITOR.replace('editor', {
+      customConfig: '/path/to/ckeditor/config.js'
+    });
+    </script>
+</main>
