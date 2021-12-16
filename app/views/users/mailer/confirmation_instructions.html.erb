@@ -2,7 +2,7 @@
 
 <p>ADoNation では、メールアドレスの間違いによるトラブルを防ぐため、メール認証システムを導入しています。<br>
 以下のURLにアクセスすると、認証が完了します。</p>
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to '認証する', confirmation_url(@resource, confirmation_token: @token) %></p>
 <p>※このメールにお心当たりがない場合や、ADoNationへの登録をキャンセルする場合はこのまま破棄してください。</p>
 <br>
 <p>本メールは送信専用メールアドレスから送信されています。返信できませんので、ご了承ください。<br>
