@@ -107,6 +107,7 @@ document.addEventListener("turbolinks:load", function () {
       ]
     });
   });
+
   $(document).ready(function () {
     $('.slick-current').addClass('is--active');
   });
@@ -168,8 +169,8 @@ document.addEventListener("turbolinks:load", function () {
         $('.footer-btn').removeClass('fixed');
       }
     });
-
   });
+
   $(function () {
     $(window).scroll(function () {
       var scroll = $(window).scrollTop();
