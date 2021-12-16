@@ -286,7 +286,7 @@ DEPENDENCIES
   spring
   turbolinks (~> 5)
   tzinfo-data
-  unicorn (= 5.4.1)
+  unicorn
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
 
