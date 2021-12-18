@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   validates :name, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, {presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true }
   validates :profile, length: { maximum: 200 }
 
   def update_without_current_password(params, *options)

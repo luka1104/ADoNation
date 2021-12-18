@@ -1,5 +1,21 @@
 ja:
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: が空になっています。
+            email:
+              blank: が空になっています。
+              taken: が既に登録されています。
+            password:
+              blank: が空になっています。
+              too_short: が短すぎます。
+            current_password:
+              blank: が空になっています。
+            password_confirmation:
+              confirmation: とパスワードが一致しません。
     attributes:
       user:
         confirmation_sent_at: パスワード確認送信時刻
@@ -9,6 +25,7 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
+        name: ユーザー名
         email: Eメール
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
@@ -16,7 +33,7 @@ ja:
         last_sign_in_ip: 最終ログインIPアドレス
         locked_at: ロック時刻
         password: パスワード
-        password_confirmation: パスワード（確認用）
+        password_confirmation: パスワードの確認
         remember_created_at: ログイン記憶時刻
         remember_me: ログインを記憶する
         reset_password_sent_at: パスワードリセット送信時刻
@@ -124,14 +141,13 @@ ja:
         sign_in: ログイン
         sign_in_with_provider: "%{provider}でログイン"
         sign_up: アカウント登録
-      minimum_password_length: "（%{count}字以上）"
+      minimum_password_length: "（6~20桁の半角英数字）"
     unlocks:
       new:
         resend_unlock_instructions: アカウントのロック解除方法を再送する
       send_instructions: アカウントのロック解除方法を数分以内にメールでご連絡します。
       send_paranoid_instructions: アカウントが見つかった場合、アカウントのロック解除方法を数分以内にメールでご連絡します。
       unlocked: アカウントをロック解除しました。
-  errors:
     messages:
       already_confirmed: は既に登録済みです。ログインしてください。
       confirmation_period_expired: の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。

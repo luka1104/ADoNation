@@ -396,3 +396,13 @@ input#file-upload-button {
     background-color: white;
   }
 }
+.login__form-error {
+  color: red;
+  float: right !important;
+}
+.minimum_password_length {
+  float: right;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 5px 0px;
+  font-size: 12px;
+}

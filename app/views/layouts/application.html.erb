@@ -19,44 +19,63 @@
     <header>
       <div id="logo">
         <a href="/" class="header-logo"><%= image_tag asset_path('adonationlogo.png') %></a>
-        <div id="logo-menu" class="hide-content">
-            <li><a href="/" class="menu-text"></a></li>
-            <li class="logo-com"><a href="/community" class="menu-text">ADoNation-Community-</a></li>
-            <li class="logo-aid"><a href="/aid" class="menu-text">ADoNation-AiD-</a></li>
-        </div>
-      </div>
-      <div class="hide-content">
-          <form action="/projects" method="get">
-          <input id="search" id="s" name="s" type="text" placeholder="キーワード検索"/>
-          <button type="submit" id="kensaku"><i class="fas fa-search"></i></button>
-          </form>
       </div>
       <div class="header-list">
-      <% if user_signed_in? %>
-          <ul class="header-nav-login">
-              <li><%= link_to current_user.name, user_profile_path(id: current_user) %></li>
-              <li class="header-login-group"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-          </ul>
-          <ul class="header-nav-donate">
-              <li class="project"><%= link_to "キフル", projects_path %></li>
-              <li><%= link_to "ツノル", new_project_path %></li>
-          </ul>
-      <% else %>
-          <ul class="header-nav-login">
-              <li><%= link_to 'サインアップ', new_user_registration_path %></li>
-              <li class="header-login-group"><%= link_to 'ログイン', new_user_session_path %></li>
-          </ul>
-          <ul class="header-nav-donate">
-              <li class="project"><%= link_to "キフル", projects_path %></li>
-              <li><%= link_to "ツノル", new_project_path %></li>
-          </ul>
-      <% end %>
+        <% if user_signed_in? %>
+            <ul class="header-nav-login">
+                <li><%= link_to current_user.name, user_profile_path(id: current_user) %></li>
+                <li class="header-login-group"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+            </ul>
+            <ul class="header-nav-donate">
+                <li class="project"><%= link_to "キフル", projects_path %></li>
+                <li><%= link_to "ツノル", new_project_path %></li>
+            </ul>
+        <% else %>
+            <ul class="header-nav-login">
+                <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+                <li class="header-login-group"><%= link_to 'ログイン', new_user_session_path %></li>
+            </ul>
+            <ul class="header-nav-donate">
+                <li class="project"><%= link_to "キフル", projects_path %></li>
+                <li><%= link_to "ツノル", new_project_path %></li>
+            </ul>
+        <% end %>
+      </div>
+      <div class="nav-menu">
+        <div id="hamburger">
+          <p class="btn-gNav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </p>
+          <nav id="gNav" class="">
+            <% if user_signed_in? %>
+              <ul class="gNav-menu">
+                <li><a href="/">トップ</a></li>
+                <li class="project"><%= link_to "キフル", projects_path %></li>
+                <li><%= link_to "ツノル", new_project_path %></li>
+                <li><%= link_to current_user.name, user_profile_path(id: current_user) %></li>
+                <li class="header-login-group"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                <li><a href="">お問い合わせ</a></li>
+              </ul>
+            <% else %>
+              <ul class="gNav-menu">
+                <li><a href="/">トップ</a></li>
+                <li class="project"><%= link_to "キフル", projects_path %></li>
+                <li><%= link_to "ツノル", new_project_path %></li>
+                <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+                <li class="header-login-group"><%= link_to 'ログイン', new_user_session_path %></li>
+                <li><a href="">お問い合わせ</a></li>
+              </ul>
+            <% end %>
+          </nav>
+        </div>
       </div>
     </header>
     <% if notice %>
-      <p class="notice"><%= notice %></p>
+      <p class="notice"><%= notice %><i id="notice-delete" class="fas fa-times"></i></p>
     <% elsif alert %>
-      <p class="alert"><%= alert %></p>
+      <p class="alert"><%= alert %><i id="alert-delete"class="fas fa-times"></i></p>
     <% end %>
     <%= yield %>
     <footer>
@@ -76,5 +95,6 @@
           </ul>
       </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   </body>
 </html>

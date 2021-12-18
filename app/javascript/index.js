@@ -71,6 +71,30 @@ document.addEventListener("turbolinks:load", function () {
     $('#preview5-edit-modal').show();
   });
 
+  $(function () {
+    $('.btn-gNav').on("click", function () {
+
+      $(this).toggleClass('open');
+      $('#gNav').toggleClass('open');
+    });
+
+  });
+
+  $('#notice-delete').click(function () {
+    $('.notice').hide();
+  });
+
+  $('#alert-delete').click(function () {
+    $('.alert').hide();
+  });
+
+  // メニューをクリックされたら、非表示にする
+  $(function () {
+    $('.gNav-menu li a').on("click", function () {
+      $('#gNav').removeClass('open');
+    });
+  });
+
   $(document).ready(function () {
     $('.slick-index').slick({
       centerMode: true,
