@@ -6,12 +6,12 @@
           <div class="login-input">
             <h2>新規会員登録</h2>
             <p>ユーザー名</p>
-            <%= f.text_field :name, autofocus: true, class: "userid", autocomplete: "name" %>
+            <%= f.text_field :name, class: "userid", autocomplete: "name" %>
             <% if @user.errors.include?(:name) %>
               <p class="login__form-error"><%= @user.errors.full_messages_for(:name).first %>
             <% end %>
             <p>メールアドレス</p>
-            <%= f.email_field :email, autofocus: true, class: "userid", autocomplete: "email" %>
+            <%= f.email_field :email, class: "userid", autocomplete: "email" %>
             <% if @user.errors.include?(:email) %>
               <p class="login__form-error"><%= @user.errors.full_messages_for(:email).first %>
             <% end %>
