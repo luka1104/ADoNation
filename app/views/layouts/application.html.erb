@@ -18,7 +18,7 @@
   <body>
     <header>
       <div id="logo">
-        <a href="/" class="header-logo"><img src="/assets/adonationlogo.png" alt=""></a>
+        <a href="/" class="header-logo"><%= image_tag asset_path('adonationlogo.png') %></a>
         <div id="logo-menu" class="hide-content">
             <li><a href="/" class="menu-text"></a></li>
             <li class="logo-com"><a href="/community" class="menu-text">ADoNation-Community-</a></li>
@@ -58,7 +58,7 @@
 
     <%= yield %>
     <footer>
-      <a href="/" class="footer-logo"><img src="/assets/adonationlogofooter.png" alt=""></a>
+      <a href="/" class="footer-logo"><%= image_tag asset_path('adonationlogofooter.png') %></a>
       <div class="footer-list">
           <ul>
               <% if user_signed_in? %>
