@@ -53,9 +53,11 @@
       <% end %>
       </div>
     </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
     <footer>
       <a href="/" class="footer-logo"><%= image_tag asset_path('adonationlogofooter.png') %></a>

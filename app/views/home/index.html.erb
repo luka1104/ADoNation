@@ -1,8 +1,8 @@
 <body>
   <ul class="slick-index">
     <% @projects.each do |project| %>
-      <%= link_to(project_path(id: project.id), class: 'list-content') do %>
-        <li class="slick-slide slick-current slick-active slick-content">
+      <li class="slick-slide slick-current slick-active slick-content">
+        <%= link_to(project_path(id: project.id), class: 'slick-list') do %>
           <%= image_tag(project.main_photo) if project.main_photo.present? %>
           <div class="slick-detail-box">
             <p><%= project.title %></p>
@@ -12,8 +12,8 @@
               <h2>残り日数：<%= project.end_date %>日</h2>
             </div>
           </div> 
-        </li>
-      <% end %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
   <div class="next-content">

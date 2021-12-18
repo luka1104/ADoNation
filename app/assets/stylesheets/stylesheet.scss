@@ -148,16 +148,40 @@ header {
 }
 
 .flash {
-    padding: 10px 0;
-    color: white;
-    background: rgb(204, 85, 228);
-    text-align: center;
-    position: absolute;
-    top: 64px;
-    z-index: 10;
-    width: 100%;
-    border-radius: 0 0 2px 2px;
-    font-size: 14px;
+  padding: 10px 0;
+  color: white;
+  background-color: rgba($color: red, $alpha: 0.8);
+  text-align: center;
+  position: absolute;
+  top: 64px;
+  z-index: 10;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  font-size: 14px;
+}
+.notice {
+  padding: 10px 0;
+  color: #2f4f4f;
+  text-align: center;
+  background-color: rgba($color: #50befd, $alpha: 0.8);
+  position: fixed;
+  top: 100px;
+  z-index: 10;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  font-size: 14px;
+}
+.alert {
+  padding: 10px 0;
+  color: white;
+  text-align: center;
+  background-color: rgba($color: red, $alpha: 0.8);
+  position: fixed;
+  top: 100px;
+  z-index: 10;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  font-size: 14px;
 }
 
 .test {
@@ -244,27 +268,6 @@ header {
     text-align: center;
     border: 1px solid #e4e4e4;
     background-color: #F6F8FA;
-}
-
-.login-input {
-    h2 {
-        max-width: 338px;
-        margin: 0 auto;
-        padding-bottom: 20px;
-        margin-bottom: 30px;
-        border-bottom: 1px solid #e4e4e4;
-    }
-    p {
-        float: left;
-        padding: 0px 0px 0px 41px;
-        margin: 0px 0px 5px 0px;
-        font-size: 12px;
-    }
-    a {
-        float: right;
-        font-size: 12px;
-        padding-right: 41px;
-    }
 }
 
 #password {
@@ -750,6 +753,69 @@ footer {
     height:100px;
     border: none;
     background-color: #5c8efb;
+}
+@media screen and (max-width: 480px) {
+  .what-adonation {
+    margin: 0 auto;
+    text-align: center;
+    h1 {
+        color: rgb(51, 51, 51);
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 40px;
+    }
+    img {
+        width: 90%;
+        height: auto;
+    }
+  }
+  .description {
+      color: rgb(51, 51, 51);
+      padding-top: 50px;
+      font-size: 5px;
+  }
+  .how-to-donate {
+      margin: 0 auto;
+      text-align: center;
+      h1 {
+          padding-top: 50px;
+          color: rgb(51, 51, 51);
+          font-size: 20px;
+          font-weight: bold;
+          padding-bottom: 40px;
+      }
+      img {
+          width: 90%;
+          height: auto;
+      }
+  }
+  .common-questions {
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 50px;
+      h1 {
+          padding-top: 50px;
+          color: rgb(51, 51, 51);
+          font-size: 20px;
+          font-weight: bold;
+          padding-bottom: 40px;
+      }
+      img {
+          width: 90%;
+          height: auto;
+      }
+  }
+  .easy-ad-btn {
+      padding: 8px;
+      color: white;
+      display: inline-block;
+      opacity: 1;
+      border-radius: 100%;
+      width: 50px;
+      height:50px;
+      border: none;
+      background-color: #5c8efb;
+  }
 }
 
 .list-con img {

@@ -7,5 +7,6 @@ class UsersController < ApplicationController
     @donated_today = ProjectPv.where(created_date: Date.today).count
   end
 
+  
 
 end
