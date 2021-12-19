@@ -117,14 +117,15 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.default_url_options = { host: 'adonation.app' }
+  config.action_mailer.default_url_options = { host: 'https://adonation.app' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => 'smtp.gmail.com',
+    :address => 'smtp.adonation.app',
     :port => 587,
-    :user_name => 'skyward.luke11@gmail.com',
-    :password => 'xclv jkfo fmmx mpzm',
+    :domain => 'adonation.app',
+    :user_name => 'contact@adonation.app',
+    :password => Rails.application.credentials.mailer[:password],
     :authentication => :plain,
     :enable_starttls_auto => true
   }
