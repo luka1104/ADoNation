@@ -22,7 +22,8 @@
   <div class="main-container">
     <div class="what-adonation">
         <h1>What Is ADoNation?</h1>
-        <%= image_tag asset_path('whatadonation.png') %>
+        <%= image_tag asset_path('whatadonation.png'), class: "what-adonation-pc" %>
+        <%= image_tag asset_path('whatadonation_phone.png'), class: "what-adonation-phone" %>
         <div class="description">
             <p>ADoNationはAd(広告)、project(寄付)、Nation(民衆)を組み合わせた寄付の新しいカタチです。</p>
         </div>
@@ -31,12 +32,16 @@
         <i class="fas fa-caret-down"></i>
     </div>
     <div class="how-to-donate">
-        <h1>キフの仕方</h1>
         <%= image_tag asset_path('howtodonate.png') %>
     </div>
+    <div class="how-to-donate-phone">
+      <%= image_tag asset_path('howtodonate_phone.png') %>
+    </div>
     <div class="common-questions">
-        <h1>よくある質問</h1>
         <%= image_tag asset_path('question.png') %>
+    </div>
+    <div class="common-questions-phone">
+      <%= image_tag asset_path('question_phone.png') %>
     </div>
   </div>
   <div class="footer-ad">
