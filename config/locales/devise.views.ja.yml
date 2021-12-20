@@ -16,6 +16,8 @@ ja:
               blank: が空になっています。
             password_confirmation:
               confirmation: とパスワードが一致しません。
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
     attributes:
       user:
         confirmation_sent_at: パスワード確認送信時刻

@@ -1,4 +1,8 @@
 ja:
+  activerecord:
+  errors:
+    messages:
+      record_invalid: "バリデーションに失敗しました: %{errors}"
   errors:
     messages:
       not_found: "は見つかりませんでした"

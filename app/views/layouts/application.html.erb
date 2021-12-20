@@ -81,18 +81,19 @@
     <footer>
       <a href="/" class="footer-logo"><%= image_tag asset_path('adonationlogofooter.png') %></a>
       <div class="footer-list">
-          <ul>
-              <% if user_signed_in? %>
-                  <li><%= link_to current_user.name, user_path(id: current_user) %></li>
-                  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-              <% else %>
-                  <li><%= link_to 'ログイン', new_user_session_path %></li>
-                  <li><%= link_to 'サインアップ', new_user_registration_path %></li>
-              <% end %>
-              <li><%= link_to("会社概要","/aboutus") %></li>
-              <li><%= link_to("採用","/recruitment") %></li>
-              <li><%= link_to("お問い合わせ","/contact") %></li>
-          </ul>
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.name, user_path(id: current_user) %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+            <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+          <% end %>
+          <li><%= link_to 'お問い合わせ', contact_path %></li>
+          <li><%= link_to '運営団体', aboutus_path %></li>
+          <li><%= link_to '利用規約', terms_path %></li>
+          <li><%= link_to 'プライバシーポリシー', privacy_path %></li>
+        </ul>
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

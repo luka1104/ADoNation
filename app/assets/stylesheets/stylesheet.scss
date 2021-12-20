@@ -837,6 +837,44 @@ footer {
         width: auto;
     }
   }
+  .notice {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 0;
+    color: #2f4f4f;
+    text-align: center;
+    background-color: rgba($color: #50befd, $alpha: 0.8);
+    position: fixed;
+    top: 60px;
+    z-index: 10;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+    font-size: 14px;
+    i {
+      float: right;
+      font-size: 14px;
+      font-size: 20px;
+      padding-right: 10px;
+    }
+  }
+  .alert {
+    padding: 10px 0;
+    color: white;
+    text-align: center;
+    background-color: rgba($color: red, $alpha: 0.8);
+    position: fixed;
+    top: 60px;
+    z-index: 10;
+    width: 100%;
+    border-radius: 0 0 2px 2px;
+    font-size: 14px;
+    i {
+      float: right;
+      font-size: 14px;
+      font-size: 20px;
+      padding-right: 10px;
+    }
+  }
   /*======================================================ハンバーガーメニュー*/
   .nav-menu {
     display: block;
@@ -994,45 +1032,6 @@ footer {
   .common-questions {
     display: none;
   }
-  
-  
-  @media screen and (min-width: 600px){
-    .btn-gNav{
-      display: none;
-    }
-    #gNav{
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 50px;
-    }
-    #gNav .gNav-menu{
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      top: 0;
-      right: 0;
-      padding-left: 50px;
-    }
-    #gNav .gNav-menu li{
-      padding-top: 5px;
-    }
-  }
-  /*========= レイアウトのためのCSS ===============*/
-  
-  .lead{
-    margin:20px 0 0 0;
-  }
-  
-  .btn-block{
-    width:200px;  
-    padding: 30px;
-  }
-
-
-  
   .easy-ad-btn {
     padding: 8px;
     color: white;
@@ -1059,8 +1058,8 @@ footer {
       font-size: 14px;
       z-index: 3;
       p {
-          font-size: 6px;
-          padding-top: 53px;
+          font-size: 13px;
+          padding-top: 47px;
       }
   }
   .fa-play {
@@ -1101,3 +1100,39 @@ footer {
       text-align: right;
   }
 }
+  
+  
+  @media screen and (min-width: 600px){
+    .btn-gNav{
+      display: none;
+    }
+    #gNav{
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 50px;
+    }
+    #gNav .gNav-menu{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding-left: 50px;
+    }
+    #gNav .gNav-menu li{
+      padding-top: 5px;
+    }
+  }
+  /*========= レイアウトのためのCSS ===============*/
+  
+  .lead{
+    margin:20px 0 0 0;
+  }
+  
+  .btn-block{
+    width:200px;  
+    padding: 30px;
+  }

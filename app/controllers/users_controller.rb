@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @donated_today = ProjectPv.where(created_date: Date.today).count
   end
 
-  
+  # logger.debug("[warn] users/registrations#new")
+  # logger.info("[error] users/registrations#new")
+  # logger.warn("[warn] users/registrations#new")
+  # logger.error("[error] users/registrations#new")
+  # logger.fatal("[fatal] users/registrations#new")
 
 end
