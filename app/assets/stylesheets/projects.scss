@@ -5,8 +5,7 @@
     max-width: 600px;
     margin: 0px auto;
     padding-top: 100px;
-    padding-left: 15px;
-    padding-right: 15px;
+    text-align: center;
     clear: both;
 }
 .banner {
@@ -18,8 +17,7 @@
 }
 .admin-project-input {
     h2 {
-        max-width: 338px;
-        margin: 0 auto;
+        margin-top: 10px;
         padding-bottom: 20px;
         margin-bottom: 30px;
         border-bottom: 1px solid #e4e4e4;
@@ -37,15 +35,21 @@
     }
     textarea {
         font-size: 10px;
-        width: 300px;
-        padding: 10px;
+        width: 98%;
+        padding-left: 10px;
         min-height: 140px;
         border: 1px solid rgb(216, 218, 223);
         resize: none;
+        margin-bottom: 10px;
     }
     textarea::-webkit-input-placeholder {
         font-size: 24px;
         opacity: 0.5;
+    }
+    div {
+      text-align: initial;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 } 
 //project#show//
@@ -301,7 +305,9 @@
     }
 }
 .project-description-input {
-  width: 80%;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .modal-edit-main {
@@ -389,11 +395,11 @@
     height: 300px;
 }
 #projecttitle {
-    width: 338px;
-    margin: 0 41px 20px 41px;
-    padding: 15px;
-    background-color: white;
-    border: 1px solid #e4e4e4;
+  width: 98%; 
+  padding-left: 10px;
+  background-color: white;
+  border: 1px solid #e4e4e4;
+  height: 30px;
 }
 #image-holder {
     width: 338px;
