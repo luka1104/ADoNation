@@ -3,10 +3,10 @@
       <div class="admin-project-input">
           <h2>新規プロジェクト情報入力画面</h2>
           <div>プロジェクト名</div>
-          <input id="projecttitle" name="title" type="text" placeholder="プロジェクト名" value="<%= @title %>">
+          <input id="projecttitle" class="projecttitle" name="title" type="text" placeholder="プロジェクト名" value="<%= @title %>">
           <div>プロジェクト本文</div>
           <div class="project-description-input">
-              <textarea name="description" placeholder="説明文" value="<%= @description %>"></textarea>
+              <textarea class="description-text" name="description" placeholder="説明文" value="<%= @description %>"></textarea>
               <input type="submit" class="long-btn login-submit" value="送信">
           </div>
       </div>
