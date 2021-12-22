@@ -22,7 +22,9 @@ class User < ApplicationRecord
     else
       user = User.new(
         name: auth.info.name,
-        email: auth.info.email
+        email: auth.info.email,
+        password: @password,
+        password_confirmation: @password
       )
       sns = SnsCredential.new(
         uid: auth.uid,
@@ -38,6 +40,8 @@ class User < ApplicationRecord
       user = User.new(
         name: auth.info.name,
         email: auth.info.email,
+        password: @password,
+        password_confirmation: @password
       )
     end
     return {user: user}
