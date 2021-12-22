@@ -3,12 +3,29 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:facebook)
   end
 
-  def twitter
-    callback_from(:twitter)
-  end
-
   def google_oauth2
     callback_for(:google)
+  end
+
+  def twitter
+    callback_for(:twitter)
+  end
+
+  def callback_for(provider)
+    @omniauth = request.env['omniauth.auth']
+    info = User.find_oauth(@omniauth)
+    @user = info[:user]
+    if @user.persisted? 
+      sign_in_and_redirect @user, event: :authentication
+      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
+    else 
+      @sns = info[:sns]
+      render template: "devise/registrations/new" 
+    end
+  end
+
+  def failure
+    redirect_to root_path and return
   end
 
   # def facebook
@@ -73,22 +90,22 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   redirect_to root_path
   # end
   # 最後のendの直前に記載
-  private
+  # private
 
-  # コールバック時に行う処理
-  def callback_from(provider)
-    provider = provider.to_s
+  # # コールバック時に行う処理
+  # def callback_from(provider)
+  #   provider = provider.to_s
 
-    @user = User.from_omniauth(request.env['omniauth.auth'])
+  #   @user = User.from_omniauth(request.env['omniauth.auth'])
 
-    # persisted?でDBに保存済みかどうか判断
-    if @user.persisted?
-      # サインアップ時に行いたい処理があればここに書きます。
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
-      sign_in_and_redirect @user, event: :authentication
-    else
-      session["devise.#{provider}_data"] = request.env['omniauth.auth']
-      redirect_to new_user_registration_url
-    end
-  end
+  #   # persisted?でDBに保存済みかどうか判断
+  #   if @user.persisted?
+  #     # サインアップ時に行いたい処理があればここに書きます。
+  #     flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
+  #     sign_in_and_redirect @user, event: :authentication
+  #   else
+  #     session["devise.#{provider}_data"] = request.env['omniauth.auth']
+  #     redirect_to new_user_registration_url
+  #   end
+  # end
 end

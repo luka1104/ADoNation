@@ -11,14 +11,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   resources :users
-  # resource :home do
-  #   member do
-  #     get :contact
-  #     get :privacy
-  #     get :terms
-  #     get :aboutus
-  #   end
-  # end
   resources :projects do
     member do
       get :preview
