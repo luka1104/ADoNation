@@ -1,19 +1,21 @@
 <div class="project-container">
   <ul class="list-con">
     <% @projects.each do |project| %>
-      <li>
-        <%= link_to(project_path(id: project.id)) do %>
-          <article class="project-list-link">
-            <%= image_tag(project.main_photo) if project.main_photo.present? %>
-            <div class="text">
-              <div class="ttl"><%= project.title %></div>
-              <div class="sab">
-                <p class="kinngaku">現在 2251円</p>
-                <p class="siennsya">支援者 17人</p>
-                <p class="nissuu">残り 34日</p>
+      <% if project.status == true %>
+        <li>
+          <%= link_to(project_path(id: project.id)) do %>
+            <article class="project-list-link">
+              <%= image_tag(project.main_photo) if project.main_photo.present? %>
+              <div class="text">
+                <div class="ttl"><%= project.title %></div>
+                <div class="sab">
+                  <p class="kinngaku">現在 2251円</p>
+                  <p class="siennsya">支援者 17人</p>
+                  <p class="nissuu">残り 34日</p>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
+          <% end %>
         <% end %>
       </li>
     <% end %>

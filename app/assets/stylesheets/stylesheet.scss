@@ -694,7 +694,7 @@ footer {
 .main-container {
     background-color: rgb(255, 255, 255);
     flex: auto;
-    padding: 30px 0 30px 0;
+    padding: 30px 0 0 0;
     padding-top: 100px;
     min-width: 10px;
     min-height: 2000px;
@@ -827,6 +827,10 @@ footer {
 }
 .nav-menu {
   display: none;
+}
+.post-btn {
+  text-align: center;
+  padding-top: 300px;
 }
 @media screen and (max-width: 480px) {
   .header-list ul {

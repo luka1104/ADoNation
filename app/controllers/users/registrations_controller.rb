@@ -5,7 +5,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
 
   def create
-    @user = User.new(user_params)
+    @password = Devise.friendly_token.first(7)
+    if session[:provider].present? && session[:uid].present?
+      @user = User.new(
+        name:session[:name],
+        email: session[:email],
+        password: @password,
+        password_confirmation: @password
+      )
+      @sns = SnsCredential.create(
+        user_id: @user.id,
+        uid: session[:uid],
+        provider: session[:provider]
+      )
+    else
+      @user = User.new(user_params)
+    end
     if @user.save
       flash[:notice] = "ユーザー認証メールを送信いたしました。認証が完了しましたらログインをお願いいたします。"
       redirect_to new_user_session_path

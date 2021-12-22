@@ -28,7 +28,7 @@
             </ul>
             <ul class="header-nav-donate">
                 <li class="project"><%= link_to "キフル", projects_path %></li>
-                <li><%= link_to "ツノル", new_project_path %></li>
+                <li><%= link_to "ツノル", post_project_path %></li>
             </ul>
         <% else %>
             <ul class="header-nav-login">
@@ -37,7 +37,7 @@
             </ul>
             <ul class="header-nav-donate">
                 <li class="project"><%= link_to "キフル", projects_path %></li>
-                <li><%= link_to "ツノル", new_project_path %></li>
+                <li><%= link_to "ツノル", post_project_path %></li>
             </ul>
         <% end %>
       </div>
@@ -53,7 +53,7 @@
               <ul class="gNav-menu">
                 <li><a href="/">トップ</a></li>
                 <li class="project"><%= link_to "キフル", projects_path %></li>
-                <li><%= link_to "ツノル", new_project_path %></li>
+                <li><%= link_to "ツノル", post_project_path %></li>
                 <li><%= link_to current_user.name, user_profile_path(id: current_user) %></li>
                 <li class="header-login-group"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
                 <li><a href="">お問い合わせ</a></li>
@@ -62,7 +62,7 @@
               <ul class="gNav-menu">
                 <li><a href="/">トップ</a></li>
                 <li class="project"><%= link_to "キフル", projects_path %></li>
-                <li><%= link_to "ツノル", new_project_path %></li>
+                <li><%= link_to "ツノル", post_project_path %></li>
                 <li><%= link_to 'サインアップ', new_user_registration_path %></li>
                 <li class="header-login-group"><%= link_to 'ログイン', new_user_session_path %></li>
                 <li><a href="">お問い合わせ</a></li>
@@ -72,6 +72,7 @@
         </div>
       </div>
     </header>
+    <p class="notice">このサイトはリリース前です。行った作業は保存されませんのでご了承ください。<i id="notice-delete" class="fas fa-times"></i></p>
     <% if notice %>
       <p class="notice"><%= notice %><i id="notice-delete" class="fas fa-times"></i></p>
     <% elsif alert %>

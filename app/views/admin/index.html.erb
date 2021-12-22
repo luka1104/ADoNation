@@ -1,0 +1,34 @@
+
+
+<div class="main-container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>ステータス</th>
+        <th>作成日</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+  
+          <td><%= project.id %></td>
+
+          <td><%= project.title %></td>
+
+          <td><%= show_status(project.status) %></td>
+
+          <td><%= project.created_at %></td>
+
+          <td><%= button_to '許可', active_admin_path(project),  {method: :put, class:"btn btn-success" }%></td>
+
+        </tr>
+        
+      <% end %>
+    </tbody>
+  </table>
+</div>
