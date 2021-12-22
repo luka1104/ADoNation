@@ -37,22 +37,19 @@
           </div>
             <div class="login-input-option">
             <h3 class="or-separater">or</h3>
-            <a href="/signup" class="sns-long-btn login-line">
-                <i class="fas fa-plus"></i>
-                LINEでアカウントで登録
-            </a>
-            <a href="https://www.facebook.com/" class="sns-long-btn login-facebook">
+            <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "sns-long-btn login-apple" do %>
+                <i class="fab fa-google"></i>
+                Googleアカウントで登録
+            <% end %>
+            <%= link_to user_facebook_omniauth_authorize_path, method: :post, class: "sns-long-btn login-facebook" do %>
                 <i class="fab fa-facebook-f"></i>
-                Facebookでアカウントで登録
-            </a>
-            <a href="https://www.twitter.com/" class="sns-long-btn login-twitter">
+                Facebookアカウントで登録
+            <% end %>
+
+            <%= link_to user_twitter_omniauth_authorize_path, method: :post, class: "sns-long-btn login-twitter" do %>
                 <i class="fab fa-twitter"></i>
                   Twitterアカウントで登録
-            </a>
-            <a href="https://www.apple.com/" class="sns-long-btn login-apple">
-                <i class="fab fa-apple"></i>
-                Appleでサインアップ
-            </a>
+            <% end %>
             <p class="readme">＊利用者の許可なく外部サービスに使用されることはありません</p>
         </div>
         <div class="signup-link">
