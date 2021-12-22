@@ -18,5 +18,11 @@ Rails.application.routes.draw do
     end
     resources :project_pvs
   end
+
+  resources :admin, only: [:index] do
+    member do
+      put :active
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,17 +1,19 @@
 <body>
   <ul class="slick-index">
     <% @projects.each do |project| %>
-      <li class="slick-slide slick-current slick-active slick-content">
-        <%= link_to(project_path(id: project.id), class: 'slick-list') do %>
-          <%= image_tag(project.main_photo) if project.main_photo.present? %>
-          <div class="slick-detail-box">
-            <p><%= project.title %></p>
-            <h1><%= project.description %></h1>
-            <div class="slick-detail-date">
-              <h3>累計寄付額：<%= project.asp_money %>円</h3>
-              <h2>残り日数：<%= project.end_date %>日</h2>
-            </div>
-          </div> 
+      <% if project.status == true %>
+        <li class="slick-slide slick-current slick-active slick-content">
+          <%= link_to(project_path(id: project.id), class: 'slick-list') do %>
+            <%= image_tag(project.main_photo) if project.main_photo.present? %>
+            <div class="slick-detail-box">
+              <p><%= project.title %></p>
+              <h1><%= project.description %></h1>
+              <div class="slick-detail-date">
+                <h3>累計寄付額：<%= project.asp_money %>円</h3>
+                <h2>残り日数：<%= project.end_date %>日</h2>
+              </div>
+            </div> 
+          <% end %>
         <% end %>
       </li>
     <% end %>
