@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/aboutus', to: 'home#aboutus'
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
+  get '/post_project', to: 'home#post_project'
   get 'users/:id/profile', to: 'users#show', as: 'user_profile'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
