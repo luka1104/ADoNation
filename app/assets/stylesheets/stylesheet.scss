@@ -494,7 +494,7 @@ input {
     background-color: #239b76;
 }
 
-.facebook {
+.faceanswer {
     background-color: #3b5998;
     margin-right: 10px;
 }
@@ -742,20 +742,40 @@ footer {
 .how-to-donate-phone {
   display: none;
 }
+// .common-questions {
+//   margin: 0 auto;
+//   text-align: center;
+//   padding-bottom: 100px;
+//   img {
+//     padding-top: 100px;
+//     width: 100%;
+//     height: auto;
+//     padding-bottom: 80px;
+//   }
+// }
 .common-questions {
   margin: 0 auto;
   text-align: center;
   padding-bottom: 100px;
-  img {
-    padding-top: 100px;
-    width: 100%;
-    height: auto;
-    padding-bottom: 80px;
-  }
+}
+.common-questions p {
+  color: #74777c;
+  font-size: 2.5vw;
 }
 .common-questions-phone {
   display: none;
 }
+#answer1,
+#answer2,
+#answer3,
+#answer4,
+#answer5 {
+  display: none;
+}
+.common-questions-detail {
+  cursor: pointer;
+}
+
 .easy-ad-btn {
   padding: 8px;
   color: white;

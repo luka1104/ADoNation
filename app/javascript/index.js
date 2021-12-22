@@ -1,5 +1,4 @@
 document.addEventListener("turbolinks:load", function () {
-  console.log("test");
 
   $('#user-edit-modal').click(function () {
     $('#user-input-modal').fadeIn();
@@ -235,5 +234,29 @@ document.addEventListener("turbolinks:load", function () {
     setTimeout(recalc, 1000);
   }
 
+  question = { question1: 0, question2: 0, question3: 0, question4: 0, question5: 0 }
+
+  $('.common-questions-detail').on('click', function () {
+    id = $(this).attr("id");
+    if (question[id] == 0) {
+      slideDown(id)
+      question[id] = 1
+    } else if (question[id] == 1) {
+      slideUp(id)
+      question[id] = 0
+    }
+  });
+
+  function slideDown(parent_id) {
+    child_id = $(`#${parent_id}`).children().attr(`id`);
+    $(`#${child_id}`).slideDown(500)
+  }
+
+  function slideUp(parent_id) {
+    child_id = $(`#${parent_id}`).children().attr(`id`);
+    $(`#${child_id}`).slideUp(500)
+  }
+
   recalc();
 });
+
