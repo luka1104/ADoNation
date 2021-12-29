@@ -12,6 +12,7 @@ class User < ApplicationRecord
   #   end
   # end
   def self.without_sns_data(auth)
+    @generated_password = Devise.friendly_token[0,20]
     user = User.where(email: auth.info.email).first
     if user.present?
       sns = SnsCredential.create(
@@ -22,7 +23,9 @@ class User < ApplicationRecord
     else
       user = User.new(
         name: auth.info.name,
-        email: auth.info.email
+        email: auth.info.email,
+        password: @generated_password,
+        password_confirmation: @generated_password
       )
       sns = SnsCredential.new(
         uid: auth.uid,
@@ -33,11 +36,14 @@ class User < ApplicationRecord
   end
 
   def self.with_sns_data(auth, snscredential)
+    @generated_password = Devise.friendly_token.first(7)
     user = User.where(id: snscredential.user_id).first
     unless user.present?
       user = User.new(
         name: auth.info.name,
         email: auth.info.email,
+        password: @generated_password,
+        password_confirmation: @generated_password
       )
     end
     return {user: user}

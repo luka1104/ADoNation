@@ -53,10 +53,10 @@
             <p class="readme">＊利用者の許可なく外部サービスに使用されることはありません</p>
         </div>
         <div class="signup-link">
-            <%= link_to("すでにアカウントをお持ちの方はこちら","/login") %>    
+            <%= link_to("すでにアカウントをお持ちの方はこちら",new_session_path(resource_name)) %>
         </div>
         <% end %>
-        <%= render "devise/shared/links" %>
+
       </div>
     </div>
   </main>

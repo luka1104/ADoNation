@@ -5,13 +5,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
 
   def create
-    @password = Devise.friendly_token.first(7)
     if session[:provider].present? && session[:uid].present?
       @user = User.new(
-        name:session[:name],
+        name: session[:name],
         email: session[:email],
-        password: @password,
-        password_confirmation: @password
+        password: session[:password],
+        password_confirmation: session[:password_confirmation]
       )
       @sns = SnsCredential.create(
         user_id: @user.id,
